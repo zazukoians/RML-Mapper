@@ -8,7 +8,7 @@ deploy:
   provider: releases
   api-key:
     - secure: blabla
-  file: target/proxy-$TRAVIS_TAG-jar-with-dependencies.jar
+  file: RML-Processor/target/RML-Processor-0.2.jar
   on:
     tags: true
     all_branches: true
