@@ -1,0 +1,14 @@
+language: java
+jdk:
+  - oraclejdk8
+sudo: false
+before_install: mvn install -DskipTests=true
+deploy:
+  edge: true
+  provider: releases
+  api-key:
+    - secure: blabla
+  file: target/proxy-$TRAVIS_TAG-jar-with-dependencies.jar
+  on:
+    tags: true
+    all_branches: true
