@@ -4,14 +4,16 @@ jdk:
 sudo: false
 before_deploy: 
   - mvn install -DskipTests
-  - export FILENAME=$(ls RML-Processor/target/RML-Processor-*.jar)
+  - cp RML-Processor/target/RML-Processor-*.jar RML-Mapper-1.0.0.jar
+#  - export FILENAME=$(ls RML-Processor/target/RML-Processor-*.jar)
 
 deploy:
   edge: true
   provider: releases
   api-key:
     - secure: "YsKan8M5+e+F9F7jln97WXeu3I1GTIiVZWwi1k1OWlrhVcNtxsAjowqwOhWFueNc4EnBMWpDqCjrvX2GWvmfB0hKq9LNNAWmZR1B2PbiZGzF1LFHa0Dl1mYAx13te0G70A0vsFJ/C5CVmypWQUrAqHRD8DasgoxXNHJ/wC9uAfXEtC6GR7rKw9TNNAusE397wuld/Gj2HgT3C1CseNC2repistTR1ceZfZbR8q2yjuVAAXcG4sNXT0yRfROJu0c2/IQW2vdMzX5cwLZz7Im9pX86YKVB1k/wo7RvsUeJ0qHYocPxi0OzUPN6GlPuLarZU7CSe69OtWVubPN/Qy/f1y1ZV5RJVPT4uZ9LTLuU9iYrgU9QLNmfLmoqdI7PfBuMmYIfGZRVAhGwQJuUPkAbopI79nKHArb876df30aCwbJy5DWWiNG2cI9Kf7S9HEIUM/Pa5SMIJeHP6wXWZofBvwUe5b5/J8K/FKx2TaQfnG8H9pCKNmMjBjtukZksy6uC9Wum8RzUSMWIviubTZkRBLujveVku1Ri+zARahtWuh5Nptom7lQaESnNY5rCCgO0WOeXccU/pNRF38u6zZcSbawPqjNu66SOXkLA/d/jAJTMHYR2miackHquVGCZtUkhW7/Qckb5Z8+XhMx/XIpskVubmDN2ZYLinEmBEqcbvBc="
-  file: "${FILENAME}"
+  #file: "${FILENAME}"
+  file: RML-Mapper-1.0.0.jar
   on:
     tags: true
     all_branches: true
