@@ -2,13 +2,16 @@ language: java
 jdk:
   - oraclejdk8
 sudo: false
-before_install: mvn install -DskipTests=true
+before_deploy: 
+  - mvn install -DskipTests
+  - export FILENAME=$(ls RML-Processor/target/RML-Processor-*.jar)
+
 deploy:
   edge: true
   provider: releases
   api-key:
     - secure: blabla
-  file: RML-Processor/target/RML-Processor-0.2.jar
+  file: "${FILENAME}"
   on:
     tags: true
     all_branches: true
